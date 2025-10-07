@@ -72,9 +72,22 @@ enable_telemetry = true
 --- Tags ---
 This variable can be used to apply tags to all resources that support it. Some resources allow overriding these tags.
 */
+# tags = {
+#   deployed_by = "terraform"
+#   source      = "Azure Landing Zones Accelerator"
+# }
+
 tags = {
-  deployed_by = "terraform"
-  source      = "Azure Landing Zones Accelerator"
+  AppName        = "Azure Landing Zones Accelerator"
+  Application    = "Azure Landing Zones Accelerator"
+  Business-Unit  = "Information Technology"
+  Cost-Code      = "NotSet"
+  Division       = "Information Technology"
+  End-Of-Life    = "Never"
+  Environment    = "Production"
+  Owner          = "Information Technology"
+  Project-Code   = "NotSet"
+  Internal-Order = "NotSet"
 }
 
 /*
