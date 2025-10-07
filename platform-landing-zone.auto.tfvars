@@ -180,6 +180,9 @@ management_group_settings = {
         Enable-DDoS-VNET = {
           enforcement_mode = "DoNotEnforce"
         }
+        Deny-Priv-Esc-AKS = {
+          effect = "Deny"
+        }
       }
     }
     corp = {
