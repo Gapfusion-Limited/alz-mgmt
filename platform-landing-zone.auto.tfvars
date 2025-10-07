@@ -182,7 +182,7 @@ management_group_settings = {
         }
         Deny-Priv-Esc-AKS = {
           parameters = {
-            effect = jsonencode({ value = "Deny" })
+            effect = "Deny"
           }
         }
       }
