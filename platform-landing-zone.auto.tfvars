@@ -181,7 +181,9 @@ management_group_settings = {
           enforcement_mode = "DoNotEnforce"
         }
         Deny-Priv-Esc-AKS = {
-          effect = "Deny"
+          parameters = {
+            effect = jsonencode({ value = "Deny" })
+          }
         }
       }
     }
