@@ -1,0 +1,32 @@
+{
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2024-04-01",
+  "name": "Require-Mandatory-Rg-Tags",
+  "dependsOn": [],
+  "properties": {
+    "description": "This policy requires a set of mandatory tags to exist on a resource group at creation time.",
+    "displayName": "Require mandatory tags on resource groups.",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/Require-Mandatory-Rg-Tags",
+    "definitionVersion": "1.0.0",
+    "enforcementMode": "Default",
+    "nonComplianceMessages": [
+      {
+        "message": "The required set of resource group tags do not exist on the resource group you are trying to create. Please check the exception message for details."
+      }
+    ],
+    "parameters": {
+      "tagApp": {
+        "value": "Application"
+      },
+      "tagOwner": {
+        "value": "Owner"
+      },
+      "effect": {
+        "value": "Deny"
+      }
+    },
+    "scope": "/providers/Microsoft.Management/managementGroups/placeholder",
+    "notScopes": []
+  },
+  "location": "uksouth"
+}
