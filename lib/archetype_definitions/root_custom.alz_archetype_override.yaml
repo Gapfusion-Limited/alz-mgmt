@@ -3,9 +3,11 @@ name: root_custom
 policy_assignments_to_add: 
  - "Deny-Public-IP"
  - "Require-Rg-Tags"
+ - "Inherit-Rg-Tags"
 policy_assignments_to_remove: []
 policy_definitions_to_add: 
  - "Require-Mandatory-Rg-Tags"
+ - "Inherit-Rg-Tags"
 policy_definitions_to_remove: []
 policy_set_definitions_to_add: []
 policy_set_definitions_to_remove: []

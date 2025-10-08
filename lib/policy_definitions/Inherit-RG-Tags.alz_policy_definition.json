@@ -1,0 +1,72 @@
+{
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "Inherit-Rg-Tags",
+    "properties": {
+        "description": "Adds or replaces the specified tags and values from the parent resource group when any resource is created or updated. Existing resources can be remediated by triggering a remediation task.",
+        "displayName": "Inherit tags and values from resource groups",
+        "policyType": "Custom",
+        "metadata": {
+            "version": "1.0.0",
+            "category": "Tags"
+        },
+        "version": "1.0.0",
+        "mode": "Indexed",
+        "parameters": {
+            "tagApp": {
+                "type": "String",
+                "metadata": {
+                    "displayName": "Tag Name - Application",
+                    "description": "Provide the value of the 'Application' tag value"
+                },
+                "defaultValue": "Application"
+            },
+            "tagOwner": {
+                "type": "String",
+                "metadata": {
+                    "displayName": "Tag Name - Owner",
+                    "description": "Provide the value of the 'Owner' tag value"
+                },
+                "defaultValue": "Owner"
+            }
+        },
+        "policyRule": {
+            "if": {
+                "anyOf": [
+                    {
+                        "exists": false,
+                        "field": "[concat('tags[', parameters('tagApp'), ']')]"
+                    },
+                    {
+                        "equals": "",
+                        "field": "[concat('tags[', parameters('tagApp'), ']')]"
+                    },
+                    {
+                        "exists": false,
+                        "field": "[concat('tags[', parameters('tagOwner'), ']')]"
+                    },
+                    {
+                        "equals": "",
+                        "field": "[concat('tags[', parameters('tagOwner'), ']')]"
+                    }
+                ]
+            },
+            "then": {
+                "details": {
+                    "operations": [
+                        {
+                            "field": "[concat('tags[', parameters('tagApp'), ']')]",
+                            "operation": "addOrReplace",
+                            "value": "[resourceGroup().tags[parameters('tagApp')]]"
+                        },
+                        {
+                            "field": "[concat('tags[', parameters('tagOwner'), ']')]",
+                            "operation": "addOrReplace",
+                            "value": "[resourceGroup().tags[parameters('tagOwner')]]"
+                        }
+                    ]
+                },
+                "effect": "modify"
+            }
+        }
+    }
+}
