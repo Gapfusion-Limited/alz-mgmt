@@ -20,9 +20,6 @@
           "uksouth",
           "ukwest"
         ]
-      },
-      "effect": {
-        "value": "Deny"
       }
     },
     "scope": "/providers/Microsoft.Management/managementGroups/placeholder",
