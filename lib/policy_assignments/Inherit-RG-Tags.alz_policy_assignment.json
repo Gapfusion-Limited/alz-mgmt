@@ -3,6 +3,9 @@
   "apiVersion": "2024-04-01",
   "name": "Inherit-Rg-Tags",
   "dependsOn": [],
+  "identity": {
+    "type": "SystemAssigned"
+  },
   "properties": {
     "description": "This policy adds or replaces the specified tags and values from the parent resource group when any resource is created or updated.",
     "displayName": "Inherit tags and values from resource groups",
