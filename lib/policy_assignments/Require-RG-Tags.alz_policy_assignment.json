@@ -5,7 +5,7 @@
   "dependsOn": [],
   "properties": {
     "description": "This policy requires a set of mandatory tags to exist on a resource group at creation time.",
-    "displayName": "Require mandatory tags on resource groups.",
+    "displayName": "Require mandatory tags on resource groups",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/Require-Mandatory-Rg-Tags",
     "definitionVersion": "1.0.0",
     "enforcementMode": "Default",

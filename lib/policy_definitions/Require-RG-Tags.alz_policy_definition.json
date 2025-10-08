@@ -3,7 +3,7 @@
     "name": "Require-Mandatory-Rg-Tags",
     "properties": {
         "description": "Enforces existence of a set of tag values on resource groups.",
-        "displayName": "Require mandatory tag values on resource groups.",
+        "displayName": "Require mandatory tag values on resource groups",
         "policyType": "Custom",
         "metadata": {
             "version": "1.0.0",
