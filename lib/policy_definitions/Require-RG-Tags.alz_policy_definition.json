@@ -1,0 +1,72 @@
+{
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "Require-Mandatory-Rg-Tags",
+    "properties": {
+        "description": "Enforces existence of a set of tag values on resource groups.",
+        "displayName": "Require mandatory tag values on resource groups.",
+        "policyType": "Custom",
+        "metadata": {
+            "version": "1.0.0",
+            "category": "Tags"
+        },
+        "version": "1.0.0",
+        "mode": "All",
+        "parameters": {
+            "tagApp": {
+                "type": "String",
+                "metadata": {
+                    "displayName": "Tag Name - Application",
+                    "description": "Provide the value of the 'Application' tag value"
+                },
+                "defaultValue": "Application"
+            },
+            "tagOwner": {
+                "type": "String",
+                "metadata": {
+                    "displayName": "Tag Name - Owner",
+                    "description": "Provide the value of the 'Owner' tag value"
+                },
+                "defaultValue": "Owner"
+            }
+        },
+        "policyRule": {
+            "if": {
+                "allOf": [
+                    {
+                        "equals": "Microsoft.Resources/subscriptions/resourceGroups",
+                        "field": "type"
+                    },
+                    {
+                        "not": {
+                            "equals": "NetworkWatcherRG",
+                            "field": "name"
+                        }
+                    },
+                    {
+                        "anyOf": [
+                            {
+                                "exists": "false",
+                                "field": "[concat('tags[', parameters('tagApp'), ']')]"
+                            },
+                            {
+                                "equals": "",
+                                "field": "[concat('tags[', parameters('tagApp'), ']')]"
+                            },
+                            {
+                                "exists": "false",
+                                "field": "[concat('tags[', parameters('tagOwner'), ']')]"
+                            },
+                            {
+                                "equals": "",
+                                "field": "[concat('tags[', parameters('tagOwner'), ']')]"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
+    }
+}
