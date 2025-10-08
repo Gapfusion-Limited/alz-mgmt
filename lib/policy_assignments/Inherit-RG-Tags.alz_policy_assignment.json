@@ -12,11 +12,6 @@
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/Inherit-Rg-Tags",
     "definitionVersion": "1.0.0",
     "enforcementMode": "Default",
-    "nonComplianceMessages": [
-      {
-        "message": ""
-      }
-    ],
     "parameters": {
       "tagApp": {
         "value": "Application"
