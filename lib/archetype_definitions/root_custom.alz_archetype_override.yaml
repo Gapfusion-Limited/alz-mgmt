@@ -2,7 +2,7 @@ base_archetype: root
 name: root_custom
 policy_assignments_to_add: 
  - "Deny-Public-IP"
- - "Require-Mandatory-Rg-Tags"
+ - "Require-Rg-Tags"
 policy_assignments_to_remove: []
 policy_definitions_to_add: 
  - "Require-Mandatory-Rg-Tags"
