@@ -20,9 +20,6 @@
       },
       "tagOwner": {
         "value": "Owner"
-      },
-      "effect": {
-        "value": "Deny"
       }
     },
     "scope": "/providers/Microsoft.Management/managementGroups/placeholder",

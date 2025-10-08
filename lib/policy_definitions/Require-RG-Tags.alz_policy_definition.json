@@ -27,19 +27,6 @@
                     "description": "Provide the value of the 'Owner' tag value"
                 },
                 "defaultValue": "Owner"
-            },
-            "effect": {
-                "type": "String",
-                "metadata": {
-                    "displayName": "Effect",
-                    "description": "Enable or disable the execution of the policy"
-                },
-                "allowedValues": [
-                    "Audit",
-                    "Deny",
-                    "Disabled"
-                ],
-                "defaultValue": "Deny"
             }
         },
         "policyRule": {
@@ -78,7 +65,7 @@
                 ]
             },
             "then": {
-                "effect": "parameters('effect')"
+                "effect": "Deny"
             }
         }
     }
